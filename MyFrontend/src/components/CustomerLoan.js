@@ -15,7 +15,7 @@ export default function LoanTable() {
   const customer_id = localStorage.getItem('customer_id');
 
   useEffect(() => {
-    // Fetch loan data from the API
+    // Fetching list of loans from database through api call
     axios.get('http://localhost:9091/loan/all')
       .then(response => {
         setLoans(response.data);
@@ -23,10 +23,10 @@ export default function LoanTable() {
       .catch(error => {
         console.error('Error fetching loan data:', error);
       });
-  }, []); // Empty dependency array ensures useEffect runs only once, like componentDidMount
+  }, []);
 
   const handleApplyLoan = (loanId) => {
-    // Logic for handling loan application goes here
+    
     console.log(`Applying for loan with ID: ${loanId}`);
   };
 
